@@ -1,0 +1,7 @@
+
+`Scenario: login using valid username and password [90m# src/test/resources/login.feature:3[0m
+  [32mGiven [0m[32muser on login page[0m                        [90m# com.tane.stepDef.LoginStepDef.userOnLoginPage()[0m
+¢  [32mAnd [0m[32muser input username with [0m[32m[1m""[0m                 [90m# com.tane.stepDef.LoginStepDef.userInputUsernameWith(java.lang.String)[0m
+¢  [32mAnd [0m[32muser input password with [0m[32m[1m""[0m                 [90m# com.tane.stepDef.LoginStepDef.userInputPasswordWith(java.lang.String)[0m
+„  [32mWhen [0m[32muser click login button[0m                    [90m# com.tane.stepDef.LoginStepDef.userClickLoginButton()[0m
+~  [32mThen [0m[32muser on homepage[0m                           [90m# com.tane.stepDef.LoginStepDef.userOnHomepage()[0m
