@@ -14,7 +14,7 @@ Pengujian ini mencakup login, fitur keranjang (cart), dan proses checkout, terma
 
 ## Tools dan Teknologi
 
-- Java 17–23 (disarankan: Java 17 atau 21)
+- Java 17–23
 - Gradle
 - Selenium WebDriver
 - Cucumber
@@ -23,17 +23,37 @@ Pengujian ini mencakup login, fitur keranjang (cart), dan proses checkout, terma
 ## Struktur Proyek
 
 ```
-ui-saucedemo-testing/
+cucumberPraktik/
 ├── build.gradle
-├── settings.gradle
+├── gradle/
+├── gradlew
+├── gradlew.bat
 ├── README.md
-├── src/
-│   ├── main/java/pages/
-│   └── test/
-│       ├── java/
-│       │   ├── stepdefinitions/
-│       │   └── runners/
-│       └── resources/features/
+├── reports/
+├── settings.gradle
+└── src/
+    └── test/
+        └── java/
+            └── com/
+                └── tane/
+                    ├── BaseTest.java
+                    ├── CucumberTest.java
+                    ├── page/
+                    │   ├── CartPage.java
+                    │   ├── CheckoutPage.java
+                    │   ├── HomePage.java
+                    │   └── LoginPage.java
+                    └── stepDef/
+                        ├── CartStepDef.java
+                        ├── CheckoutStepDef.java
+                        ├── CucumberHooks.java
+                        ├── HomeStepDef.java
+                        └── LoginStepDef.java
+        └── resources/
+            ├── cart.feature
+            ├── checkout.feature
+            └── login.feature
+
 ```
 
 ## Fitur yang Diuji
@@ -55,3 +75,62 @@ Pastikan sudah terpasang:
 - Java JDK 17–21
 - Gradle
 - Browser Chrome
+
+### Clone Repositori
+
+```
+
+cd ui-saucedemo-testing
+```
+
+### Install dependensi dan build
+
+```
+./gradlew clean build
+```
+
+### Jalankan semua tes
+
+```
+./gradlew test
+```
+
+### Lihat laporan hasil pengujian
+
+Buka file berikut:
+
+```
+build/reports/tests/test/index.html
+```
+
+## Menjalankan Berdasarkan Tag
+
+Jalankan tes login saja:
+
+```
+./gradlew test --tests * --info -Dcucumber.filter.tags="@login"
+```
+
+Jalankan tes boundary saja:
+
+```
+./gradlew test --tests * --info -Dcucumber.filter.tags="@boundary"
+```
+
+## Konfigurasi Gradle
+
+Contoh dependensi di build.gradle:
+
+```
+dependencies {
+    testImplementation 'io.cucumber:cucumber-java:7.11.2'
+    testImplementation 'io.cucumber:cucumber-junit:7.11.2'
+    testImplementation 'org.seleniumhq.selenium:selenium-java:4.11.0'
+    testImplementation 'junit:junit:4.13.2'
+}
+```
+
+## Catatan
+
+- Diuji pada Chrome
+- Gunakan Java 17–21 untuk kompatibilitas Gradle yang stabil
