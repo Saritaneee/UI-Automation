@@ -79,7 +79,7 @@ Pastikan sudah terpasang:
 ### Clone Repositori
 
 ```
-
+git clone https://github.com/Saritaneee/UI-Automation.git
 cd ui-saucedemo-testing
 ```
 
